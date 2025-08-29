@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MedCart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('home') }}">🏠 Home</a> |
+        <a href="{{ url_for('shop') }}">🛍 Shop</a> |
+        <a class="cart-link" href="{{ url_for('cart_view') }}">
+            🛒 <span id="cart-count" class="badge">{{ cart_count }}</span>
+        </a>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
