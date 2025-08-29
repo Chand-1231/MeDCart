@@ -52,3 +52,29 @@ def cart_view():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+from flask import Flask, render_template, session
+import socket, os
+
+app = Flask(__name__)
+app.secret_key = "your-secret-key"
+
+def get_free_port(default=5000):
+    """Find a free port starting from default (local only)."""
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    while True:
+        try:
+            sock.bind(("127.0.0.1", default))
+            sock.close()
+            return default
+        except OSError:
+            default += 1  # try next port
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    # Render sets PORT env var, otherwise find free local port
+    port = int(os.environ.get("PORT", get_free_port(5000)))
+    print(f"✅ Starting Flask on port {port}")
+    app.run(debug=True, host="0.0.0.0", port=port)
