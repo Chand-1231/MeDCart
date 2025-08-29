@@ -1,9 +1,80 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Shop Medicines</h1>
-<ul>
-  {% for product in products %}
-    <li>{{ product.name }} - {{ product.price }}</li>
-  {% endfor %}
-</ul>
+<div class="shop-container">
+  <h1>🛍 Shop Medicines & Essentials</h1>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='img/paracetamol.png') }}" alt="Paracetamol">
+      <h3>Paracetamol 500mg</h3>
+      <p>For fever & pain relief</p>
+      <span>₹25</span>
+      <form method="POST" action="{{ url_for('add_to_cart') }}">
+        <input type="hidden" name="product" value="Paracetamol">
+        <input type="hidden" name="price" value="25">
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='img/vitamin_c.png') }}" alt="Vitamin C">
+      <h3>Vitamin C Tablets</h3>
+      <p>Boosts immunity</p>
+      <span>₹120</span>
+      <form method="POST" action="{{ url_for('add_to_cart') }}">
+        <input type="hidden" name="product" value="Vitamin C">
+        <input type="hidden" name="price" value="120">
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='img/thermometer.png') }}" alt="Thermometer">
+      <h3>Digital Thermometer</h3>
+      <p>Fast & accurate</p>
+      <span>₹199</span>
+      <form method="POST" action="{{ url_for('add_to_cart') }}">
+        <input type="hidden" name="product" value="Thermometer">
+        <input type="hidden" name="price" value="199">
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+<div class="shop-container">
+  <h1>🛍 Shop Medicines & Essentials</h1>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='img/paracetamol.png') }}" alt="Paracetamol">
+      <h3>Paracetamol 500mg</h3>
+      <p>For fever & pain relief</p>
+      <span>₹25</span>
+      <form method="POST" action="{{ url_for('add_to_cart') }}">
+        <input type="hidden" name="product" value="Paracetamol">
+        <input type="hidden" name="price" value="25">
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='img/vitamin_c.png') }}" alt="Vitamin C">
+      <h3>Vitamin C Tablets</h3>
+      <p>Boosts immunity</p>
+      <span>₹120</span>
+      <form method="POST" action="{{ url_for('add_to_cart') }}">
+        <input type="hidden" name="product" value="Vitamin C">
+        <input type="hidden" name="price" value="120">
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='img/thermometer.png') }}" alt="Thermometer">
+      <h3>Digital Thermometer</h3>
+      <p>Fast & accurate</p>
+      <span>₹199</span>
+      <form method="POST" action="{{ url_for('add_to_cart') }}">
+        <input type="hidden" name="product" value="Thermometer">
+        <input type="hidden" name="price" value="199">
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
